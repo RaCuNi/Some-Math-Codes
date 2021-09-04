@@ -92,11 +92,11 @@ public class MathResolver {
             System.out.println("There must be at least one solution at "+"("+m+","+half(m, l)+")");
             double[] caseOne = {intervalValues[0], intervalValues[1]};
             return caseOne;
-        } else {
+        } else if(f(a,b,c,d,l)*f(a,b,c,d,half(m,l)) < 0) {
             System.out.println("There must be at least one solution at "+"("+half(m, l)+","+l+")");
             double[] caseTwo = {intervalValues[1], intervalValues[2]};
             return caseTwo;
-        }
+        } else return null;
     }
 
     public double[] loop(int r, int a, int b, int c, int d, double m, double l) {
@@ -109,5 +109,4 @@ public class MathResolver {
 
         return loop(r-1, a, b, c, d, result[0], result[1]);
     }
-
 }
